@@ -1,0 +1,151 @@
+library("ggplot2")
+dates=c('2001/01','2001/02','2001/03','2001/04','2001/05','2001/06','2001/07','2001/08','2001/09','2001/10','2001/11','2001/12',
+        '2002/01','2002/02','2002/03','2002/04','2002/05','2002/06','2002/07','2002/08','2002/09','2002/10','2002/11','2002/12',
+        '2003/01','2003/02','2003/03','2003/04','2003/05','2003/06','2003/07','2003/08','2003/09','2003/10','2003/11','2003/12',
+        '2004/01','2004/02','2004/03','2004/04','2004/05','2004/06','2004/07','2004/08','2004/09','2004/10','2004/11','2004/12',
+        '2005/01','2005/02','2005/03','2005/04','2005/05','2005/06','2005/07','2005/08','2005/09','2005/10','2005/11','2005/12',
+        '2006/01','2006/02','2006/03','2006/04','2006/05','2006/06','2006/07','2006/08','2006/09','2006/10','2006/11','2006/12',
+        '2007/01','2007/02','2007/03','2007/04','2007/05','2007/06','2007/07','2007/08','2007/09','2007/10','2007/11','2007/12',
+        '2008/01','2008/02','2008/03','2008/04','2008/05','2008/06','2008/07','2008/08','2008/09','2008/10','2008/11','2008/12',
+        '2009/01','2009/02','2009/03','2009/04','2009/05','2009/06','2009/07','2009/08','2009/09','2009/10','2009/11','2009/12',
+        '2010/01','2010/02','2010/03','2010/04','2010/05','2010/06','2010/07','2010/08','2010/09','2010/10','2010/11','2010/12',
+        '2011/01','2011/02','2011/03','2011/04','2011/05','2011/06','2011/07','2011/08','2011/09','2011/10','2011/11','2011/12',
+        '2012/01','2012/02','2012/03','2012/04','2012/05','2012/06','2012/07','2012/08','2012/09','2012/10','2012/11','2012/12',
+        '2013/01','2013/02','2013/03','2013/04','2013/05','2013/06','2013/07','2013/08','2013/09','2013/10','2013/11','2013/12',
+        '2014/01','2014/02','2014/03','2014/04','2014/05','2014/06','2014/07','2014/08','2014/09','2014/10','2014/11','2014/12',
+        '2015/01','2015/02')
+
+gather=function(x,y){
+  gathered=c()
+  gathered[length(gathered)+1]=jan01[x,y] ; gathered[length(gathered)+1]=feb01[x,y] ; gathered[length(gathered)+1]=mar01[x,y] ; gathered[length(gathered)+1]=apr01[x,y] ; gathered[length(gathered)+1]=may01[x,y] ; gathered[length(gathered)+1]=jun01[x,y] ; gathered[length(gathered)+1]=jul01[x,y] ; gathered[length(gathered)+1]=aug01[x,y] ; gathered[length(gathered)+1]=sep01[x,y] ; gathered[length(gathered)+1]=oct01[x,y] ; gathered[length(gathered)+1]=nov01[x,y] ; gathered[length(gathered)+1]=dec01[x,y]
+  gathered[length(gathered)+1]=jan02[x,y] ; gathered[length(gathered)+1]=feb02[x,y] ; gathered[length(gathered)+1]=mar02[x,y] ; gathered[length(gathered)+1]=apr02[x,y] ; gathered[length(gathered)+1]=may02[x,y] ; gathered[length(gathered)+1]=jun02[x,y] ; gathered[length(gathered)+1]=jul02[x,y] ; gathered[length(gathered)+1]=aug02[x,y] ; gathered[length(gathered)+1]=sep02[x,y] ; gathered[length(gathered)+1]=oct02[x,y] ; gathered[length(gathered)+1]=nov02[x,y] ; gathered[length(gathered)+1]=dec02[x,y]
+  gathered[length(gathered)+1]=jan03[x,y] ; gathered[length(gathered)+1]=feb03[x,y] ; gathered[length(gathered)+1]=mar03[x,y] ; gathered[length(gathered)+1]=apr03[x,y] ; gathered[length(gathered)+1]=may03[x,y] 
+  gathered[length(gathered)+1]=jun03[x,y] ; gathered[length(gathered)+1]=jul03[x,y] ; gathered[length(gathered)+1]=aug03[x,y] ; gathered[length(gathered)+1]=sep03[x,y] ; gathered[length(gathered)+1]=oct03[x,y] ; gathered[length(gathered)+1]=nov03[x,y] ; gathered[length(gathered)+1]=dec03[x,y]
+  gathered[length(gathered)+1]=jan04[x,y] ; gathered[length(gathered)+1]=feb04[x,y] ; gathered[length(gathered)+1]=mar04[x,y] ; gathered[length(gathered)+1]=apr04[x,y] ; gathered[length(gathered)+1]=may04[x,y] ; gathered[length(gathered)+1]=jun04[x,y] ; gathered[length(gathered)+1]=jul04[x,y] ; gathered[length(gathered)+1]=aug04[x,y] ; gathered[length(gathered)+1]=sep04[x,y] ; gathered[length(gathered)+1]=oct04[x,y] ; gathered[length(gathered)+1]=nov04[x,y] ; gathered[length(gathered)+1]=dec04[x,y]
+  gathered[length(gathered)+1]=jan05[x,y] ; gathered[length(gathered)+1]=feb05[x,y] ; gathered[length(gathered)+1]=mar05[x,y] ; gathered[length(gathered)+1]=apr05[x,y] ; gathered[length(gathered)+1]=may05[x,y] ; gathered[length(gathered)+1]=jun05[x,y] ; gathered[length(gathered)+1]=jul05[x,y] ; gathered[length(gathered)+1]=aug05[x,y] ; gathered[length(gathered)+1]=sep05[x,y] ; gathered[length(gathered)+1]=oct05[x,y] ; gathered[length(gathered)+1]=nov05[x,y] ; gathered[length(gathered)+1]=dec05[x,y]
+  gathered[length(gathered)+1]=jan06[x,y] ; gathered[length(gathered)+1]=feb06[x,y] ; gathered[length(gathered)+1]=mar06[x,y] ; gathered[length(gathered)+1]=apr06[x,y] ; gathered[length(gathered)+1]=may06[x,y] ; gathered[length(gathered)+1]=jun06[x,y] ; gathered[length(gathered)+1]=jul06[x,y] ; gathered[length(gathered)+1]=aug06[x,y] ; gathered[length(gathered)+1]=sep06[x,y] ; gathered[length(gathered)+1]=oct06[x,y] ; gathered[length(gathered)+1]=nov06[x,y] ; gathered[length(gathered)+1]=dec06[x,y]
+  gathered[length(gathered)+1]=jan07[x,y] ; gathered[length(gathered)+1]=feb07[x,y] ; gathered[length(gathered)+1]=mar07[x,y] ; gathered[length(gathered)+1]=apr07[x,y] ; gathered[length(gathered)+1]=may07[x,y] ; gathered[length(gathered)+1]=jun07[x,y] ; gathered[length(gathered)+1]=jul07[x,y] ; gathered[length(gathered)+1]=aug07[x,y] ; gathered[length(gathered)+1]=sep07[x,y] ; gathered[length(gathered)+1]=oct07[x,y] ; gathered[length(gathered)+1]=nov07[x,y] ; gathered[length(gathered)+1]=dec07[x,y]
+  gathered[length(gathered)+1]=jan08[x,y] ; gathered[length(gathered)+1]=feb08[x,y] ; gathered[length(gathered)+1]=mar08[x,y] ; gathered[length(gathered)+1]=apr08[x,y] ; gathered[length(gathered)+1]=may08[x,y] ; gathered[length(gathered)+1]=jun08[x,y] ; gathered[length(gathered)+1]=jul08[x,y] ; gathered[length(gathered)+1]=aug08[x,y] ; gathered[length(gathered)+1]=sep08[x,y] ; gathered[length(gathered)+1]=oct08[x,y] ; gathered[length(gathered)+1]=nov08[x,y] ; gathered[length(gathered)+1]=dec08[x,y]
+  gathered[length(gathered)+1]=jan09[x,y] ; gathered[length(gathered)+1]=feb09[x,y] ; gathered[length(gathered)+1]=mar09[x,y] ; gathered[length(gathered)+1]=apr09[x,y] ; gathered[length(gathered)+1]=may09[x,y] ; gathered[length(gathered)+1]=jun09[x,y] ; gathered[length(gathered)+1]=jul09[x,y] ; gathered[length(gathered)+1]=aug09[x,y] ; gathered[length(gathered)+1]=sep09[x,y] ; gathered[length(gathered)+1]=oct09[x,y] ; gathered[length(gathered)+1]=nov09[x,y] ; gathered[length(gathered)+1]=dec09[x,y]
+  gathered[length(gathered)+1]=jan10[x,y] ; gathered[length(gathered)+1]=feb10[x,y] ; gathered[length(gathered)+1]=mar10[x,y] ; gathered[length(gathered)+1]=apr10[x,y] ; gathered[length(gathered)+1]=may10[x,y] ; gathered[length(gathered)+1]=jun10[x,y] ; gathered[length(gathered)+1]=jul10[x,y] ; gathered[length(gathered)+1]=aug10[x,y] ; gathered[length(gathered)+1]=sep10[x,y] ; gathered[length(gathered)+1]=oct10[x,y] ; gathered[length(gathered)+1]=nov10[x,y] ; gathered[length(gathered)+1]=dec10[x,y]
+  gathered[length(gathered)+1]=jan11[x,y] ; gathered[length(gathered)+1]=feb11[x,y] ; gathered[length(gathered)+1]=mar11[x,y] ; gathered[length(gathered)+1]=apr11[x,y] ; gathered[length(gathered)+1]=may11[x,y] ; gathered[length(gathered)+1]=jun11[x,y] ; gathered[length(gathered)+1]=jul11[x,y] ; gathered[length(gathered)+1]=aug11[x,y] ; gathered[length(gathered)+1]=sep11[x,y] ; gathered[length(gathered)+1]=oct11[x,y] ; gathered[length(gathered)+1]=nov11[x,y] ; gathered[length(gathered)+1]=dec11[x,y]
+  gathered[length(gathered)+1]=jan12[x,y] ; gathered[length(gathered)+1]=feb12[x,y] ; gathered[length(gathered)+1]=mar12[x,y] ; gathered[length(gathered)+1]=apr12[x,y] ; gathered[length(gathered)+1]=may12[x,y] ; gathered[length(gathered)+1]=jun12[x,y] ; gathered[length(gathered)+1]=jul12[x,y] ; gathered[length(gathered)+1]=aug12[x,y] ; gathered[length(gathered)+1]=sep12[x,y] ; gathered[length(gathered)+1]=oct12[x,y] ; gathered[length(gathered)+1]=nov12[x,y] ; gathered[length(gathered)+1]=dec12[x,y]
+  gathered[length(gathered)+1]=jan13[x,y] ; gathered[length(gathered)+1]=feb13[x,y] ; gathered[length(gathered)+1]=mar13[x,y] ; gathered[length(gathered)+1]=apr13[x,y] ; gathered[length(gathered)+1]=may13[x,y] ; gathered[length(gathered)+1]=jun13[x,y] ; gathered[length(gathered)+1]=jul13[x,y] ; gathered[length(gathered)+1]=aug13[x,y] ; gathered[length(gathered)+1]=sep13[x,y] ; gathered[length(gathered)+1]=oct13[x,y] ; gathered[length(gathered)+1]=nov13[x,y] ; gathered[length(gathered)+1]=dec13[x,y]
+  gathered[length(gathered)+1]=jan14[x,y] ; gathered[length(gathered)+1]=feb14[x,y] ; gathered[length(gathered)+1]=mar14[x,y] ; gathered[length(gathered)+1]=apr14[x,y] ; gathered[length(gathered)+1]=may14[x,y] ; gathered[length(gathered)+1]=jun14[x,y] ; gathered[length(gathered)+1]=jul14[x,y] ; gathered[length(gathered)+1]=aug14[x,y] ; gathered[length(gathered)+1]=sep14[x,y] ; gathered[length(gathered)+1]=oct14[x,y] ; gathered[length(gathered)+1]=nov14[x,y] ; gathered[length(gathered)+1]=dec14[x,y]
+  gathered[length(gathered)+1]=jan15[x,y] ; gathered[length(gathered)+1]=feb15[x,y]
+  return (gathered)
+}
+
+
+load("~/bart/jan01") ; load("~/bart/feb01") ; load("~/bart/mar01") ; load("~/bart/apr01") ; load("~/bart/may01") ; load("~/bart/jun01") ; load("~/bart/jul01") ; load("~/bart/aug01") ; load("~/bart/sep01") ;load("~/bart/oct01") ; load("~/bart/nov01") ; load("~/bart/dec01")
+load("~/bart/jan02") ; load("~/bart/feb02") ; load("~/bart/mar02") ; load("~/bart/apr02") ; load("~/bart/may02") ; load("~/bart/jun02") ; load("~/bart/jul02") ; load("~/bart/aug02") ; load("~/bart/sep02") ;load("~/bart/oct02") ; load("~/bart/nov02") ; load("~/bart/dec02")
+load("~/bart/jan03") ; load("~/bart/feb03") ; load("~/bart/mar03") ; load("~/bart/apr03") ; load("~/bart/may03") ; load("~/bart/jun03") ; load("~/bart/jul03") ; load("~/bart/aug03") ; load("~/bart/sep03") ;load("~/bart/oct03") ; load("~/bart/nov03") ; load("~/bart/dec03")
+load("~/bart/jan04") ; load("~/bart/feb04") ; load("~/bart/mar04") ; load("~/bart/apr04") ; load("~/bart/may04") ; load("~/bart/jun04") ; load("~/bart/jul04") ; load("~/bart/aug04") ; load("~/bart/sep04") ;load("~/bart/oct04") ; load("~/bart/nov04") ; load("~/bart/dec04")
+load("~/bart/jan05") ; load("~/bart/feb05") ; load("~/bart/mar05") ; load("~/bart/apr05") ; load("~/bart/may05") ; load("~/bart/jun05") ; load("~/bart/jul05") ; load("~/bart/aug05") ; load("~/bart/sep05") ;load("~/bart/oct05") ; load("~/bart/nov05") ; load("~/bart/dec05")
+load("~/bart/jan06") ; load("~/bart/feb06") ; load("~/bart/mar06") ; load("~/bart/apr06") ; load("~/bart/may06") ; load("~/bart/jun06") ; load("~/bart/jul06") ; load("~/bart/aug06") ; load("~/bart/sep06") ;load("~/bart/oct06") ; load("~/bart/nov06") ; load("~/bart/dec06")
+load("~/bart/jan07") ; load("~/bart/feb07") ; load("~/bart/mar07") ; load("~/bart/apr07") ; load("~/bart/may07") ; load("~/bart/jun07") ; load("~/bart/jul07") ; load("~/bart/aug07") ; load("~/bart/sep07") ;load("~/bart/oct07") ; load("~/bart/nov07") ; load("~/bart/dec07")
+load("~/bart/jan08") ; load("~/bart/feb08") ; load("~/bart/mar08") ; load("~/bart/apr08") ; load("~/bart/may08") ; load("~/bart/jun08") ; load("~/bart/jul08") ; load("~/bart/aug08") ; load("~/bart/sep08") ;load("~/bart/oct08") ; load("~/bart/nov08") ; load("~/bart/dec08")
+load("~/bart/jan09") ; load("~/bart/feb09") ; load("~/bart/mar09") ; load("~/bart/apr09") ; load("~/bart/may09") ; load("~/bart/jun09") ; load("~/bart/jul09") ; load("~/bart/aug09") ; load("~/bart/sep09") ;load("~/bart/oct09") ; load("~/bart/nov09") ; load("~/bart/dec09")
+load("~/bart/jan10") ; load("~/bart/feb10") ; load("~/bart/mar10") ; load("~/bart/apr10") ; load("~/bart/may10") ; load("~/bart/jun10") ; load("~/bart/jul10") ; load("~/bart/aug10") ; load("~/bart/sep10") ;load("~/bart/oct10") ; load("~/bart/nov10") ; load("~/bart/dec10")
+load("~/bart/jan11") ; load("~/bart/feb11") ; load("~/bart/mar11") ; load("~/bart/apr11") ; load("~/bart/may11") ; load("~/bart/jun11") ; load("~/bart/jul11") ; load("~/bart/aug11") ; load("~/bart/sep11") ;load("~/bart/oct11") ; load("~/bart/nov11") ; load("~/bart/dec11")
+load("~/bart/jan12") ; load("~/bart/feb12") ; load("~/bart/mar12") ; load("~/bart/apr12") ; load("~/bart/may12") ; load("~/bart/jun12") ; load("~/bart/jul12") ; load("~/bart/aug12") ; load("~/bart/sep12") ;load("~/bart/oct12") ; load("~/bart/nov12") ; load("~/bart/dec12")
+load("~/bart/jan13") ; load("~/bart/feb13") ; load("~/bart/mar13") ; load("~/bart/apr13") ; load("~/bart/may13") ; load("~/bart/jun13") ; load("~/bart/jul13") ; load("~/bart/aug13") ; load("~/bart/sep13") ;load("~/bart/oct13") ; load("~/bart/nov13") ; load("~/bart/dec13")
+load("~/bart/jan14") ; load("~/bart/feb14") ; load("~/bart/mar14") ; load("~/bart/apr14") ; load("~/bart/may14") ; load("~/bart/jun14") ; load("~/bart/jul14") ; load("~/bart/aug14") ; load("~/bart/sep14") ;load("~/bart/oct14") ; load("~/bart/nov14") ; load("~/bart/dec14")
+load("~/bart/jan15") ; load("~/bart/feb15")
+
+
+graph=function(loc1,loc2){
+  set<<-gather(loc1,loc2)
+  gplot=ggplot(,aes(x=dates,y=set,color="Red"))+geom_point(size=2)
+  def average(x){
+    y=x[x>0]
+    return(mean(y))
+  }
+  def std(x){
+    y=x[x>0]
+    return(sd(y))
+  }
+  a=0.03*average(set)
+  gplot=gplot+geom_segment(aes(x=0,xend=170,y=average(set),yend=average(set)),color="Blue")
+  gplot=gplot+annotate("text",x=165,y=average(set)+2*a,label=paste("sum ",round(sum(set))),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=165,y=average(set)+a,label=paste("average ",round(average(set))),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=165,y=average(set)-a,label=paste("std ",round(std(set))),color="Blue",hjust=1)
+  data_vector<<-set[1:12]
+  gplot=gplot+geom_segment(aes(x=0,xend=12,y=average(data_vector),yend=average(data_vector)))
+  gplot=gplot+annotate("text",x=12,y=average(data_vector)+2*a,label=round(sum(data_vector)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=12,y=average(data_vector)+a,label=round(average(data_vector)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=12,y=average(data_vector)-a,label=round(std(data_vector)),color="Blue",hjust=1)
+  data_vector2<<-set[13:24]
+  gplot=gplot+geom_segment(aes(x=12,xend=24,y=average(data_vector2),yend=average(data_vector2)))
+  gplot=gplot+annotate("text",x=24,y=average(data_vector2)+2*a,label=round(sum(data_vector2)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=24,y=average(data_vector2)+a,label=round(average(data_vector2)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=24,y=average(data_vector2)-a,label=round(std(data_vector2)),color="Blue",hjust=1)
+  data_vector3<<-set[25:36]
+  gplot=gplot+geom_segment(aes(x=24,xend=36,y=average(data_vector3),yend=average(data_vector3)))
+  gplot=gplot+annotate("text",x=36,y=average(data_vector3)+2*a,label=round(sum(data_vector3)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=36,y=average(data_vector3)+a,label=round(average(data_vector3)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=36,y=average(data_vector3)-a,label=round(std(data_vector3)),color="Blue",hjust=1)
+  data_vector4<<-set[37:48]
+  gplot=gplot+geom_segment(aes(x=36,xend=48,y=average(data_vector4),yend=average(data_vector4)))
+  gplot=gplot+annotate("text",x=48,y=average(data_vector4)+2*a,label=round(sum(data_vector4)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=48,y=average(data_vector4)+a,label=round(average(data_vector4)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=48,y=average(data_vector4)-a,label=round(std(data_vector4)),color="Blue",hjust=1)
+  data_vector5<<-set[49:60]
+  gplot=gplot+geom_segment(aes(x=48,xend=60,y=average(data_vector5),yend=average(data_vector5)))
+  gplot=gplot+annotate("text",x=60,y=average(data_vector5)+2*a,label=round(sum(data_vector5)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=60,y=average(data_vector5)+a,label=round(average(data_vector5)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=60,y=average(data_vector5)-a,label=round(std(data_vector5)),color="Blue",hjust=1)
+  data_vector6<<-set[61:72]
+  gplot=gplot+geom_segment(aes(x=60,xend=72,y=average(data_vector6),yend=average(data_vector6)))
+  gplot=gplot+annotate("text",x=72,y=average(data_vector6)+2*a,label=round(sum(data_vector6)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=72,y=average(data_vector6)+a,label=round(average(data_vector6)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=72,y=average(data_vector6)-a,label=round(std(data_vector6)),color="Blue",hjust=1)
+  data_vector7<<-set[73:84]
+  gplot=gplot+geom_segment(aes(x=72,xend=83,y=average(data_vector7),yend=average(data_vector7)))
+  gplot=gplot+annotate("text",x=83,y=average(data_vector7)+2*a,label=round(sum(data_vector7)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=83,y=average(data_vector7)+a,label=round(average(data_vector7)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=83,y=average(data_vector7)-a,label=round(std(data_vector7)),color="Blue",hjust=1)
+  data_vector8<<-set[85:96]
+  gplot=gplot+geom_segment(aes(x=84,xend=96,y=average(data_vector8),yend=average(data_vector8)))
+  gplot=gplot+annotate("text",x=96,y=average(data_vector8)+2*a,label=round(sum(data_vector8)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=96,y=average(data_vector8)+a,label=round(average(data_vector8)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=96,y=average(data_vector8)-a,label=round(std(data_vector8)),color="Blue",hjust=1)
+  data_vector9<<-set[97:108]
+  gplot=gplot+geom_segment(aes(x=96,xend=108,y=average(data_vector9),yend=average(data_vector9)))
+  gplot=gplot+annotate("text",x=108,y=average(data_vector9)+2*a,label=round(sum(data_vector9)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=108,y=average(data_vector9)+a,label=round(average(data_vector9)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=108,y=average(data_vector9)-a,label=round(std(data_vector9)),color="Blue",hjust=1)
+  data_vector10<<-set[109:120]
+  gplot=gplot+geom_segment(aes(x=108,xend=120,y=average(data_vector10),yend=average(data_vector10)))
+  gplot=gplot+annotate("text",x=120,y=average(data_vector10)+2*a,label=round(sum(data_vector10)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=120,y=average(data_vector10)+a,label=round(average(data_vector10)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=120,y=average(data_vector10)-a,label=round(std(data_vector10)),color="Blue",hjust=1)
+  data_vector11<<-set[121:132]
+  gplot=gplot+geom_segment(aes(x=120,xend=132,y=average(data_vector11),yend=average(data_vector11)))
+  gplot=gplot+annotate("text",x=132,y=average(data_vector11)+2*a,label=round(sum(data_vector11)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=132,y=average(data_vector11)+a,label=round(average(data_vector11)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=132,y=average(data_vector11)-a,label=round(std(data_vector11)),color="Blue",hjust=1)
+  data_vector12<<-set[133:144]
+  gplot=gplot+geom_segment(aes(x=132,xend=144,y=average(data_vector12),yend=average(data_vector12)))
+  gplot=gplot+annotate("text",x=144,y=average(data_vector12)+2*a,label=round(sum(data_vector12)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=144,y=average(data_vector12)+a,label=round(average(data_vector12)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=144,y=average(data_vector12)-a,label=round(std(data_vector12)),color="Blue",hjust=1)
+  data_vector13<<-set[145:156]
+  gplot=gplot+geom_segment(aes(x=144,xend=156,y=average(data_vector13),yend=average(data_vector13)))
+  gplot=gplot+annotate("text",x=156,y=average(data_vector13)+2*a,label=round(sum(data_vector13)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=156,y=average(data_vector13)+a,label=round(average(data_vector13)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=156,y=average(data_vector13)-a,label=round(std(data_vector13)),color="Blue",hjust=1)
+  data_vector14<<-set[157:168]
+  gplot=gplot+geom_segment(aes(x=156,xend=168,y=average(data_vector14),yend=average(data_vector14)))
+  gplot=gplot+annotate("text",x=168,y=average(data_vector14)+2*a,label=round(sum(data_vector14)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=168,y=average(data_vector14)+a,label=round(average(data_vector14)),color="Blue",hjust=1)
+  gplot=gplot+annotate("text",x=168,y=average(data_vector14)-a,label=round(std(data_vector14)),color="Blue",hjust=1)
+  gplot=gplot+geom_vline(x=seq(12,168,12))
+  gplot=gplot+xlab("Date")
+  gplot=gplot+ylab("Average Weekly Ridership")
+  gplot=gplot+ggtitle(paste("Average Weeekly Ridership between ",loc1," and ",loc2," vs. Time",sep=""))
+  gplot=gplot+annotate("text",x=seq(4,160,12),y=max(set),label=c(2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014),hjust=0,inches=TRUE)
+  gplot=gplot+theme(axis.ticks = element_line(size = 2))
+  gplot=gplot+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  return (gplot)
+}
